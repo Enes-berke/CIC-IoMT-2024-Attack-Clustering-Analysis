@@ -388,22 +388,7 @@ cluster_labels = kmeans.fit_predict(scaled_features)
 1. **CIC-IoMT-2024 Dataset**
    - Canadian Institute for Cybersecurity
    - University of New Brunswick
-   - ([https://www.unb.ca/cic/datasets/](https://www.unb.ca/cic/datasets/iomt-dataset-2024.html)
-
-2. **K-Means Clustering**
-   - MacQueen, J. (1967). "Some methods for classification and analysis of multivariate observations"
-   - Arthur, D., & Vassilvitskii, S. (2007). "k-means++: The advantages of careful seeding"
-
-3. **Scikit-learn**
-   - Pedregosa et al. (2011). "Scikit-learn: Machine Learning in Python", JMLR 12, pp. 2825-2830
-
-4. **IoMT Security**
-   - Williams, P. A., & Woodward, A. J. (2015). "Cybersecurity vulnerabilities in medical devices"
-   - Rahman, A. et al. (2020). "Internet of Medical Things: A comprehensive survey"
-
-5. **Clustering Evaluation**
-   - Rousseeuw, P. J. (1987). "Silhouettes: A graphical aid to the interpretation and validation of cluster analysis"
-   - Hubert, L., & Arabie, P. (1985). "Comparing partitions", Journal of Classification
+   - ([https://www.unb.ca/cic/datasets/iomt-dataset-2024.html](https://www.unb.ca/cic/datasets/iomt-dataset-2024.html)
 
 ---
 
