@@ -388,7 +388,7 @@ cluster_labels = kmeans.fit_predict(scaled_features)
 1. **CIC-IoMT-2024 Dataset**
    - Canadian Institute for Cybersecurity
    - University of New Brunswick
-   - [https://www.unb.ca/cic/datasets/](https://www.unb.ca/cic/datasets/)
+   - ([https://www.unb.ca/cic/datasets/](https://www.unb.ca/cic/datasets/iomt-dataset-2024.html)
 
 2. **K-Means Clustering**
    - MacQueen, J. (1967). "Some methods for classification and analysis of multivariate observations"
