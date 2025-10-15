@@ -1,10 +1,10 @@
 # CIC-IoMT-2024 Veri Seti K-Means Kümeleme Analizi 
 
-## 📋 Proje Hakkında
+##  Proje Hakkında
 
 Bu proje, **CIC-IoMT-2024 (Canadian Institute for Cybersecurity - Internet of Medical Things)** veri seti üzerinde **K-Means kümeleme algoritması** kullanılarak IoMT (Tıbbi Nesnelerin İnterneti) cihazlarına yönelik siber saldırıların tespit edilmesi ve sınıflandırılmasını amaçlamaktadır.
 
-### 🎯 Proje Amacı
+###  Proje Amacı
 
 IoMT cihazları sağlık sektöründe kritik öneme sahip olup, bu cihazlara yönelik siber saldırılar hasta güvenliğini ve veri gizliliğini tehdit etmektedir. Bu çalışma, **denetimsiz öğrenme (unsupervised learning)** yöntemleri kullanarak:
 
@@ -15,13 +15,13 @@ IoMT cihazları sağlık sektöründe kritik öneme sahip olup, bu cihazlara yö
 
 ---
 
-## 📊 Veri Seti Bilgileri
+##  Veri Seti Bilgileri
 
 **CIC-IoMT-2024 Veri Seti**, gerçekçi IoMT ortamında toplanan ve çeşitli siber saldırı senaryolarını içeren kapsamlı bir veri setidir.
 
 #### Protokoller:
-- 📡 **WiFi ve MQTT**: HTTP/HTTPS, MQTT mesajlaşma protokolü
-- 🔵 **Bluetooth**: BLE (Bluetooth Low Energy) iletişimi
+-  **WiFi ve MQTT**: HTTP/HTTPS, MQTT mesajlaşma protokolü
+-  **Bluetooth**: BLE (Bluetooth Low Energy) iletişimi
 
 #### Saldırı Kategorileri:
 
@@ -40,13 +40,13 @@ IoMT cihazları sağlık sektöründe kritik öneme sahip olup, bu cihazlara yö
 
 ---
 
-## 🔬 Gerçekleştirilen Analizler
+##  Gerçekleştirilen Analizler
 
 ### 1️⃣ Genel Kategori Sınıflandırması (codes_3)
 
 **K-Means kümeleme algoritması** kullanılarak **tüm saldırı kategorilerinin** analizi.
 
-#### 📌 Parametreler:
+####  Parametreler:
 - **Veri Boyutu**: 75,130 örnek
 - **Özellik Sayısı**: 45
 - **Kategori Sayısı**: 8
@@ -61,7 +61,7 @@ IoMT cihazları sağlık sektöründe kritik öneme sahip olup, bu cihazlara yö
 - **Optimal Küme Sayısı**: 13
 - **Hedef Örnek/Kategori**: 10,000 (dengeli dağılım)
 
-#### 📊 Performans Metrikleri:
+####  Performans Metrikleri:
 ```
 ✓ Silhouette Score:          0.4456
 ✓ Adjusted Rand Index (ARI): 0.4592
@@ -71,13 +71,13 @@ IoMT cihazları sağlık sektöründe kritik öneme sahip olup, bu cihazlara yö
 ✓ Genel Saflık (Purity):     61.84%
 ```
 
-#### 🎯 Önemli Bulgular:
+####  Önemli Bulgular:
 - **En iyi küme**: Küme 8 (Reconnaissance) → %100 saflık
 - **En büyük küme**: Küme 3 (MQTT_DoS) → 22,668 örnek
 - **Karışan kategoriler**: TCP_IP_DDoS ve TCP_IP_DoS (birbirine benzer)
 - **Performans değerlendirmesi**: Orta düzey - K-Means algoritması genel kategorilerde makul performans gösterdi
 
-#### 📁 Çıktılar:
+####  Çıktılar:
 ```
 codes_3/
 ├── kmeans_clustering_analysis.py          # Ana analiz scripti
@@ -94,7 +94,7 @@ codes_3/
 
 **MQTT protokolüne özgü** detaylı kümeleme analizi - Alt kategorilerin ayrımı.
 
-#### 📌 Parametreler:
+####  Parametreler:
 - **Veri Boyutu**: 25,000 örnek
 - **Özellik Sayısı**: 45
 - **MQTT Alt Kategorisi**: 5
@@ -106,7 +106,7 @@ codes_3/
 - **Optimal Küme Sayısı**: 8
 - **Hedef Örnek/Kategori**: 5,000 (dengeli dağılım)
 
-#### 📊 Performans Metrikleri:
+####  Performans Metrikleri:
 ```
 ✓ Silhouette Score:          0.3502
 ✓ Adjusted Rand Index (ARI): 0.5066
@@ -120,20 +120,20 @@ codes_3/
 ✓ Genel Saflık (Purity):     69.52%
 ```
 
-#### 🎯 Önemli Bulgular:
-- 🌟 **MQTT-Malformed_Data mükemmel ayrıştı**: 3 küme %98-100 saflıkla
-- 📈 **Genel kategorilerden daha iyi performans**: %69.5 vs %61.8 saflık
-- 🔍 **En önemli özellikler** (Feature Importance):
+####  Önemli Bulgular:
+-  **MQTT-Malformed_Data mükemmel ayrıştı**: 3 küme %98-100 saflıkla
+-  **Genel kategorilerden daha iyi performans**: %69.5 vs %61.8 saflık
+-  **En önemli özellikler** (Feature Importance):
   1. IAT (Inter-Arrival Time)
   2. fin_count
   3. Tot size
   4. Min
   5. Header_Length
-- 📊 **İstatistiksel Anlamlılık**: F-statistic = 4242.49, p < 0.001 (Evet)
-- 🔄 **Küme Kararlılığı**: 0.9628 ± 0.0215 (Çok yüksek)
-- ⚠️ **Zorluk**: Connect_Flood ve Publish_Flood arasında kısmi karışıklık
+-  **İstatistiksel Anlamlılık**: F-statistic = 4242.49, p < 0.001 (Evet)
+-  **Küme Kararlılığı**: 0.9628 ± 0.0215 (Çok yüksek)
+-  **Zorluk**: Connect_Flood ve Publish_Flood arasında kısmi karışıklık
 
-#### 📁 Çıktılar:
+####  Çıktılar:
 ```
 codes_5/
 ├── mqtt_subcategories_analysis.py               # MQTT detaylı analiz scripti
@@ -148,7 +148,7 @@ codes_5/
 
 ---
 
-## 📊 Sonuçlar ve Karşılaştırma
+##  Sonuçlar ve Karşılaştırma
 
 ### codes_3 vs codes_5 Performans Karşılaştırması
 
@@ -162,15 +162,15 @@ codes_5/
 | **Veri Boyutu** | 75,130 | 25,000 | - |
 | **Kategori Sayısı** | 8 | 5 | - |
 
-### 🎯 Temel Bulgular
+###  Temel Bulgular
 
-1. ✅ **MQTT-özel analiz daha başarılı**: Alt kategorilere odaklanmak %7.7 saflık artışı sağladı
-2. ✅ **Malformed Data mükemmel**: MQTT-Malformed_Data %98+ saflıkla tespit edildi
-3. ⚠️ **DDoS/DoS karışıklığı**: Hem genel hem MQTT'de DoS ve DDoS birbirine karıştı
-4. ✅ **İstatistiksel güvenilirlik**: Her iki analiz de istatistiksel olarak anlamlı (p < 0.001)
-5. 📊 **Küme kararlılığı yüksek**: MQTT analizi %96 kararlılık gösterdi
+1.  **MQTT-özel analiz daha başarılı**: Alt kategorilere odaklanmak %7.7 saflık artışı sağladı
+2.  **Malformed Data mükemmel**: MQTT-Malformed_Data %98+ saflıkla tespit edildi
+3.  **DDoS/DoS karışıklığı**: Hem genel hem MQTT'de DoS ve DDoS birbirine karıştı
+4.  **İstatistiksel güvenilirlik**: Her iki analiz de istatistiksel olarak anlamlı (p < 0.001)
+5.  **Küme kararlılığı yüksek**: MQTT analizi %96 kararlılık gösterdi
 
-### 🔍 Özellik Önemlilik Analizi (codes_5)
+###  Özellik Önemlilik Analizi (codes_5)
 
 **En ayırt edici özellikler:**
 
@@ -184,12 +184,12 @@ codes_5/
 
 ---
 
-## 📁 Proje Yapısı
+##  Proje Yapısı
 
 ```
 tasarım_proje_cıc_ıot/
 │
-├── CICIoMT2024/                          # 📦 Veri seti (gitignore'da)
+├── CICIoMT2024/                          #  Veri seti (gitignore'da)
 │   ├── Bluetooth/                        
 │   │   ├── attacks/
 │   │   └── profiling/
@@ -201,7 +201,7 @@ tasarım_proje_cıc_ıot/
 │       │   └── pcap/
 │       └── profiling/
 │
-├── codes_3/                              # 🎯 Genel Kategori Analizi
+├── kmeans_clustering_analysis/           #  Genel Kategori Analizi
 │   ├── kmeans_clustering_analysis.py     # Ana script (753 satır)
 │   ├── kmeans_clustering_results.png     
 │   ├── labeled_vs_clustered_comparison.png
@@ -209,7 +209,7 @@ tasarım_proje_cıc_ıot/
 │   ├── kmeans_clustering_results.csv     
 │   └── cluster_statistics.csv            
 │
-├── codes_5/                              # 🎯 MQTT Alt Kategori Analizi
+├── mqtt_cluster_analysis/                #  MQTT Alt Kategori Analizi
 │   ├── mqtt_subcategories_analysis.py    # MQTT script (1205 satır)
 │   ├── mqtt_labeled_data_visualization.png
 │   ├── mqtt_clustering_results_visualization.png
@@ -218,25 +218,16 @@ tasarım_proje_cıc_ıot/
 │   ├── mqtt_clustering_report.txt
 │   ├── mqtt_clustering_results.csv       
 │   └── mqtt_cluster_statistics.csv       
+│                     
 │
-├── farklı_algoritma/                     # 📚 Ek: GMM Analizleri (Opsiyonel)
-│   ├── gmm_5/                            
-│   ├── gmm_10/                           
-│   └── gmm_5vs10/                        
-│
-├── diğer/                                # 📂 Arşiv klasörü
-│   ├── codes_s/                          # Eski denemeler
-│   ├── EDA/                              # Keşifsel veri analizi
-│   └── sunum_görseller/                  # Sunum görselleri
-│
-├── README.md                             # 📖 Bu dosya
-├── requirements.txt                      # 📦 Python gereksinimleri
-└── .gitignore                            # 🚫 Git dışlama dosyası
+├── README.md                             #  Bu dosya
+├── requirements.txt                      #  Python gereksinimleri
+└── .gitignore                            #  Git dışlama dosyası
 ```
 
 ---
 
-## 🚀 Kurulum ve Kullanım
+##  Kurulum ve Kullanım
 
 ### Gereksinimler
 
@@ -283,7 +274,7 @@ python kmeans_clustering_analysis.py
 
 ---
 
-#### 2️⃣ MQTT Alt Kategori Analizi (codes_5)
+#### 2️⃣ MQTT Alt Kategori Analizi 
 
 ```bash
 cd codes_5
@@ -304,7 +295,7 @@ python mqtt_subcategories_analysis.py
 
 ---
 
-## 🔬 Metodoloji
+##  Metodoloji
 
 ### Veri Ön İşleme
 
@@ -378,13 +369,13 @@ cluster_labels = kmeans.fit_predict(scaled_features)
 
 ---
 
-## 📈 Görselleştirme Örnekleri
+##  Görselleştirme Örnekleri
 
-### codes_3 Görselleştirmeleri:
+### kmeans_clustering_analysis Görselleştirmeleri:
 - **9 panelli ana grafik**: Elbow, Silhouette, Calinski-Harabasz, küme/etiket dağılımları, saflık, confusion matrix, metrik karşılaştırması
 - **4 panelli karşılaştırma**: PCA gerçek etiketler, PCA kümeler, etiket dağılımı, küme dağılımı
 
-### codes_5 Görselleştirmeleri:
+### mqtt_cluster_analysis Görselleştirmeleri:
 - **6 panelli etiketli veri**: PCA 2D, korelasyon matrisi, pasta grafik, bar grafik, özellik önemlilik, veri özeti
 - **6 panelli kümeleme sonuçları**: PCA etiketler, PCA kümeler, confusion matrix, küme dağılımı, küme saflığı (bubble chart), performans özeti
 - **9 panelli ana grafik**: Elbow, Silhouette, Calinski-Harabasz, küme/etiket/saflık dağılımları, confusion matrix, metrikler, özet
@@ -392,7 +383,7 @@ cluster_labels = kmeans.fit_predict(scaled_features)
 
 ---
 
-## 🎓 Akademik Referanslar
+##  Akademik Referanslar
 
 1. **CIC-IoMT-2024 Dataset**
    - Canadian Institute for Cybersecurity
@@ -427,7 +418,7 @@ cluster_labels = kmeans.fit_predict(scaled_features)
 
 ---
 
-## 🤝 Katkıda Bulunma
+##  Katkıda Bulunma
 
 Bu proje akademik araştırma amaçlı geliştirilmiştir. Katkılarınızı bekliyoruz:
 
@@ -439,32 +430,19 @@ Bu proje akademik araştırma amaçlı geliştirilmiştir. Katkılarınızı bek
 
 ---
 
-## 📝 Lisans
+##  Lisans
 
 Bu proje akademik ve eğitim amaçlı kullanım içindir. Veri seti kullanımı için CIC-IoMT-2024 lisans koşullarına uyulmalıdır.
 
 ---
 
-## 📧 İletişim
+##  İletişim
 
 Proje hakkında sorularınız için:
-- 🐛 **Issues** sekmesinden bildirim oluşturabilirsiniz
-- 🌟 Projeyi beğendiyseniz **yıldızlamayı** unutmayın!
+-  **Issues** sekmesinden bildirim oluşturabilirsiniz
+-  Projeyi beğendiyseniz **yıldızlamayı** unutmayın!
 
 ---
-
-<div align="center">
-
-### ⚕️ Sağlık Teknolojilerinde Güvenlik ⚕️
-### 🛡️ Siber Tehditlere Karşı Makine Öğrenmesi 🛡️
-
-**Made with ❤️ for IoMT Security Research**
-
----
-
-![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-1.2+-orange.svg)
-![License](https://img.shields.io/badge/License-Academic-green.svg)
 
 </div>
 
