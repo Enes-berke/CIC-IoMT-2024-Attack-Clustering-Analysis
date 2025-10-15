@@ -1,0 +1,9 @@
+cluster_id,dominant_label,total_samples,purity,label_distribution
+0,MQTT-DDoS-Connect_Flood,131,0.7251908396946565,"{'MQTT-DoS-Publish_Flood': 7, 'MQTT-DDoS-Publish_Flood': 27, 'MQTT-DDoS-Connect_Flood': 95, 'MQTT-DoS-Connect_Flood': 2}"
+1,MQTT-DoS-Connect_Flood,10949,0.4556580509635583,"{'MQTT-Malformed_Data': 601, 'MQTT-DDoS-Publish_Flood': 470, 'MQTT-DDoS-Connect_Flood': 4889, 'MQTT-DoS-Connect_Flood': 4989}"
+2,MQTT-Malformed_Data,79,0.9873417721518988,"{'MQTT-Malformed_Data': 78, 'MQTT-DDoS-Connect_Flood': 1}"
+3,MQTT-DDoS-Publish_Flood,4555,0.929967069154775,"{'MQTT-DoS-Publish_Flood': 254, 'MQTT-Malformed_Data': 64, 'MQTT-DDoS-Publish_Flood': 4236, 'MQTT-DDoS-Connect_Flood': 1}"
+4,MQTT-DoS-Publish_Flood,6040,0.7846026490066225,"{'MQTT-DoS-Publish_Flood': 4739, 'MQTT-Malformed_Data': 1013, 'MQTT-DDoS-Publish_Flood': 265, 'MQTT-DDoS-Connect_Flood': 14, 'MQTT-DoS-Connect_Flood': 9}"
+5,MQTT-Malformed_Data,1518,1.0,{'MQTT-Malformed_Data': 1518}
+6,MQTT-Malformed_Data,180,1.0,{'MQTT-Malformed_Data': 180}
+7,MQTT-Malformed_Data,1548,0.9987080103359173,"{'MQTT-Malformed_Data': 1546, 'MQTT-DDoS-Publish_Flood': 2}"
