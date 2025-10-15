@@ -1,4 +1,4 @@
-# CIC-IoMT-2024 Veri Seti K-Means Kümeleme Analizi 🏥🔒
+# CIC-IoMT-2024 Veri Seti K-Means Kümeleme Analizi 
 
 ## 📋 Proje Hakkında
 
